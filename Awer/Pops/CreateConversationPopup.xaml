@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Awer.Pops.CreateConversationPopup"
+             Title="Create A Chat">
+
+    <StackLayout>
+        <StackLayout  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Padding="30,0,30,0">
+
+            <Label HorizontalTextAlignment="Center" Text="Create a chat with the name of your choosing." Margin="0,0,0,20"/>
+            <Entry  x:Name="_rootName" Placeholder="New Conversation"/>
+            <Button Text="Create" Clicked="Handle_Clicked" BackgroundColor="Transparent" TextColor="#FF7E2A" Margin="0,20,0,0" Padding="15" FontSize="Medium" x:Name="CreateClick"/>
+        </StackLayout>
+        
+        <!--CREATE USER-->
+        <!--<StackLayout>
+            <Entry x:Name="txtId" Placeholder="ID"></Entry>
+            <Entry x:Name="txtName" Placeholder="Enter Name"></Entry>
+            <Entry x:Name="txtRole" Placeholder="Enter Role"></Entry>
+            <StackLayout  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                <Button x:Name="btnAdd" WidthRequest="200" Text="Add" Clicked="BtnAdd_Clicked"/>
+            </StackLayout>
+        </StackLayout>-->
+
+    </StackLayout>
+        
+   
+    
+</ContentPage>

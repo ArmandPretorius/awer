@@ -1,0 +1,74 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Firebase.Database;
+
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+using Xamarin.Essentials;
+
+namespace Awer.Pops
+{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class CreateConversationPopup : ContentPage
+    {
+        FirebaseClient fbClient = new FirebaseClient("https://awer-8918c.firebaseio.com/");
+        public CreateConversationPopup()
+        {
+            InitializeComponent();
+        }
+
+        public async void Handle_Clicked(object sender, System.EventArgs e)
+        {
+
+            if(_rootName.Text == "")
+            {
+                await DisplayAlert("Oops", "You need to choose a Name", "Try Again");
+            } else
+            {
+                var db = new Database.Firebase();
+                await db.createConversation(new Model.Conversation() { Name = _rootName.Text });
+
+                var oauthToken = await SecureStorage.GetAsync("oauth_token");
+                var person = await db.GetPerson(oauthToken);
+
+                var _person = person.Key;
+                var _name = person.FullName;
+
+                //All Conversations
+                var list = await db.getConversationList();
+
+
+                //For loop to add the logged in users conversations into the second list
+                foreach (Model.Conversation conversation in list)
+                {
+                   if(conversation.Name == _rootName.Text)
+                    {
+                        await db.joinConversation2(conversation.Key, _person, _name);
+                        await Navigation.PopAsync();
+                    }
+                    
+                }
+            }
+
+            
+        }
+
+
+        //CREATE USER
+        //private async void BtnAdd_Clicked(object sender, EventArgs e)
+        //{
+        //    var db = new Database.Firebase();
+
+        //    await db.AddPerson(new Model.Person() { FullName = txtName.Text, Role = txtRole.Text});
+        //    txtId.Text = string.Empty;
+        //    txtName.Text = string.Empty;
+        //    txtRole.Text = string.Empty;
+        //    await DisplayAlert("Success", "Person Added Successfully", "OK");
+        //    var allPersons = await db.GetAllPersons();
+        //    lstPersons.ItemsSource = allPersons;
+        //}
+    }
+}

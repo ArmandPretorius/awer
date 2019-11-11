@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Awer.Pages.ConversationPage"
+             Title="Chats"
+             BackgroundColor="White">
+    <ContentPage.ToolbarItems>
+       
+        <ToolbarItem IconImageSource="logout.png" Clicked="Logout_Clicked"/>
+
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand">
+
+            <Label x:Name="NoChats" Text="No Chats for now." HorizontalTextAlignment="Center"></Label>
+        
+        <StackLayout VerticalOptions="FillAndExpand">
+            <ListView ItemsSource="{Binding .}" SeparatorVisibility="Default"  x:Name="_lstx" RowHeight="120" 
+			IsPullToRefreshEnabled="true"
+			ItemSelected="Handle_ItemSelected"
+			Refreshing="Handle_Refreshing"
+			>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Margin="10">
+                                <Label Text="{Binding Name}" TextColor="Black" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" FontSize="Large"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+
+        <StackLayout>
+            <AbsoluteLayout>
+                <ImageButton Source="create.png" 
+            BackgroundColor="Transparent"
+            AbsoluteLayout.LayoutFlags="PositionProportional"  
+            AbsoluteLayout.LayoutBounds=".95,.95,220,80" 
+            Clicked="Create_Clicked"
+            x:Name="CreateButton"
+                             />
+                <ImageButton Source="add.png" 
+            BackgroundColor="Transparent"
+            AbsoluteLayout.LayoutFlags="PositionProportional"  
+            AbsoluteLayout.LayoutBounds=".95,.95,80,80" 
+            Clicked="ScanCustomPage"
+                             />
+            </AbsoluteLayout>
+
+        </StackLayout>
+        </StackLayout>
+        
+
+
+
+    </ContentPage.Content>
+</ContentPage>

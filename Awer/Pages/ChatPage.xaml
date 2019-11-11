@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Awer.Pages.ChatPage"
+             x:Title="Chat"
+             BackgroundColor="White">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="scan.png" Clicked="GenerateBarcode"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+       
+        
+        <Grid VerticalOptions="Start">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+
+            <ListView Margin="10,20,10,20" Grid.Row="0" HasUnevenRows="True" ItemsSource="{Binding .}" x:Name="_lstChat"
+				SeparatorVisibility="Default">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Margin="0,10,0,10">
+                                <Label Text="{Binding UserId}" TextColor="#FF7E2A" FontSize="Small"/>
+                                <Label Text="{Binding UserMessage}" LineBreakMode="WordWrap" FontSize="Medium" TextColor="Black" Opacity="100"/>
+                            </StackLayout>
+  
+                        </ViewCell>
+                        
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+
+                <Editor Placeholder="Write Message .." Grid.Column="0" x:Name="_etMessage" Keyboard="Chat" Margin="10,0,0,0"/>
+                <Button ImageSource="send.png" Grid.Column="1" Clicked="Handle_Clicked" BackgroundColor="White"/>
+                
+            </Grid>
+
+
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

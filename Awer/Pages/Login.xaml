@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Awer.Pages.Login"
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Margin="30,0,30,0">
+            <StackLayout Margin="0,40,0,40">
+                <Image Source="awerlogo.png"></Image>
+            </StackLayout>
+            <StackLayout Margin="0,40,0,20">
+                <Entry  x:Name="_email" Placeholder="Your Email" Keyboard="Email"/>
+            </StackLayout>
+            <StackLayout Margin="0,20,0,30">
+                <Entry  x:Name="_password" Placeholder="Your Password" IsPassword="true" Keyboard="Default"/>
+            </StackLayout>
+            <StackLayout Margin="0,40,0,40">
+                <Button Text="Login" Clicked="Handle_Login" Padding="25,25,25,25" BackgroundColor="White" TextColor="#FF7E2A" FontSize="Large"/>
+                <!--<Button Text="Create Account" BackgroundColor="White" FontSize="Small"></Button>-->
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
