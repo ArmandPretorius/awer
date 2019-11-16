@@ -47,12 +47,15 @@ namespace Awer.Pages
         {
             try
             {
+                errorMessage.IsVisible = false;
                 await db.CheckLogin(_email.Text, _password.Text);
                 await Navigation.PushAsync(new ConversationPage(false));
             }
             catch
             {
                 Console.Write("Not Correct");
+                errorMessage.IsVisible = true;
+                _password.Text = "";
             }
         }
     }

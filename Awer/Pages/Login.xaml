@@ -10,15 +10,22 @@
                 <Image Source="awerlogo.png"></Image>
             </StackLayout>
             <StackLayout Margin="0,40,0,20">
+                <Frame BackgroundColor="#FEEFDF" Margin="0,5,0,5" IsVisible="False" Padding="5" CornerRadius="10"  x:Name="errorMessage" >
+                    <Label Text="Oops, your email and/or password is incorrect." TextColor="#FE9072"/>
+                </Frame>
+                <Label Text="Email" HorizontalOptions="StartAndExpand" FontSize="Small" TextColor="Black"/>
                 <Entry  x:Name="_email" Placeholder="Your Email" Keyboard="Email"/>
             </StackLayout>
             <StackLayout Margin="0,20,0,30">
+                <Label Text="Password" HorizontalOptions="StartAndExpand" FontSize="Small" TextColor="Black"/>
                 <Entry  x:Name="_password" Placeholder="Your Password" IsPassword="true" Keyboard="Default"/>
+
             </StackLayout>
             <StackLayout Margin="0,40,0,40">
-                <ImageButton Clicked="Handle_Login" Padding="25,25,25,25" BackgroundColor="Transparent" Source="loginButton" HorizontalOptions="CenterAndExpand"/>
+                <ImageButton Clicked="Handle_Login" Aspect="AspectFill" Padding="25,25,25,25" BackgroundColor="Transparent" Source="loginButton" HorizontalOptions="CenterAndExpand"/>
                 <!--<Button Text="Create Account" BackgroundColor="White" FontSize="Small"></Button>-->
             </StackLayout>
+            
 
         </StackLayout>
     </ContentPage.Content>

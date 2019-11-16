@@ -29,35 +29,38 @@ namespace Awer.Database
         //Authentication
         public async Task CheckLogin(string email, string password)
         {
+         
+                var auth = await authProvider.SignInWithEmailAndPasswordAsync(email, password)
 
-            var auth = await authProvider.SignInWithEmailAndPasswordAsync(email, password)
-                //.ContinueWith(async authent =>
+             //.ContinueWith(async authent =>
+             //{
+             //    if (authent.IsCanceled)
+             //    {
+             //        Debug.Write("CreateUserWithEmailAndPasswordAsync was canceled.");
+             //        return;
+             //    }
+             //    if (authent.IsFaulted)
+             //    {
+             //        Debug.Write("CreateUserWithEmailAndPasswordAsync encountered an error: " + authent.Exception.GetBaseException());
+             //        return;
+             //    }
+             //})
+             ;
+
+                var user = auth.User.LocalId;
+                //try
                 //{
-                //    if (authent.IsCanceled)
-                //    {
-                //       Debug.Write("CreateUserWithEmailAndPasswordAsync was canceled.");
-                //        return;
-                //    }
-                //    if (authent.IsFaulted)
-                //    {
-                //        Debug.Write("CreateUserWithEmailAndPasswordAsync encountered an error: " + authent.Exception.GetBaseException());
-                //        return;
-                //    }
-                //})
-                ;
+                    await SecureStorage.SetAsync("oauth_token", user);
+                    await SecureStorage.SetAsync("loggedIn", "true");
 
-            var user = auth.User.LocalId;
-            try
-            {
-                await SecureStorage.SetAsync("oauth_token", user);
-                await SecureStorage.SetAsync("loggedIn", "true");
-
-            }
-            catch (Exception ex)
-            {
-                // Possible that device doesn't support secure storage on device.
-                Console.WriteLine("Error: " + ex);
-            }
+                //}
+                //catch (Exception ex)
+                //{
+                //    // Possible that device doesn't support secure storage on device.
+                //    Console.WriteLine("Error: " + ex);
+                //   // await SecureStorage.SetAsync("loggedIn", "false");
+                //}
+            
         }
 
         //Persons
