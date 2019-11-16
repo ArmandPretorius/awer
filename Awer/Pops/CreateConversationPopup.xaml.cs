@@ -56,6 +56,11 @@ namespace Awer.Pops
             
         }
 
+        private async void BackButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
+
 
         //CREATE USER
         //private async void BtnAdd_Clicked(object sender, EventArgs e)

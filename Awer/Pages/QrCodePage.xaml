@@ -3,10 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
              xmlns:zxcm="clr-namespace:ZXing.Common;assembly=zxing.portable"
-             x:Class="Awer.Pages.QrCodePage">
+             x:Class="Awer.Pages.QrCodePage"
+             BackgroundColor="White"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
 
-        <StackLayout>
+        <StackLayout Padding="0">
+            <StackLayout Orientation="Horizontal" Padding="20,10,20,10" BackgroundColor="#FEEFDF">
+                <ImageButton Source="back" BackgroundColor="Transparent" Clicked="BackButton_Clicked" Margin="0,0,10,0"/>
+                <Label x:Name="BarcodeLabel" Text="Barcode" FontSize="22" TextColor="#000000" LineBreakMode="TailTruncation"/>
+            </StackLayout>
+            
             <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Padding="0,40,0,0">
                 <zxing:ZXingBarcodeImageView WidthRequest="300" HeightRequest="300" BarcodeFormat="QR_CODE" BarcodeValue="None" x:Name="BarcodeId" >
                     <zxing:ZXingBarcodeImageView.BarcodeOptions>
@@ -15,7 +22,7 @@
                 </zxing:ZXingBarcodeImageView>
             </StackLayout>
             <StackLayout HorizontalOptions="CenterAndExpand" Padding="30,40,30,0">
-                <Label HorizontalTextAlignment="Center" FontSize="Large" Text="Barcode" x:Name="BarcodeLabel"/>
+                <!--<Label HorizontalTextAlignment="Center" FontSize="Large" Text="Barcode" x:Name="BarcodeLabel"/>-->
                 <Label HorizontalTextAlignment="Center" FontSize="Small" Text="Present the QR-Code to the person joining the chat. Please do not share it with just anyone. Your privacy is our first priority."/>
             </StackLayout>
         </StackLayout>

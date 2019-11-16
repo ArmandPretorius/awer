@@ -17,8 +17,13 @@ namespace Awer.Pages
             InitializeComponent();
 
             BarcodeId.BarcodeValue = chatId;
-            BarcodeLabel.Text = chatName + " QR-Code";
+            BarcodeLabel.Text = chatName + " Barcode";
 
+        }
+
+        private async void BackButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
         }
     }
 }

@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Awer.Pages.Login"
-             BackgroundColor="White">
+             BackgroundColor="White"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Margin="30,0,30,0">
             <StackLayout Margin="0,40,0,40">
@@ -15,7 +16,7 @@
                 <Entry  x:Name="_password" Placeholder="Your Password" IsPassword="true" Keyboard="Default"/>
             </StackLayout>
             <StackLayout Margin="0,40,0,40">
-                <Button Text="Login" Clicked="Handle_Login" Padding="25,25,25,25" BackgroundColor="White" TextColor="#FF7E2A" FontSize="Large"/>
+                <ImageButton Clicked="Handle_Login" Padding="25,25,25,25" BackgroundColor="Transparent" Source="loginButton" HorizontalOptions="CenterAndExpand"/>
                 <!--<Button Text="Create Account" BackgroundColor="White" FontSize="Small"></Button>-->
             </StackLayout>
 

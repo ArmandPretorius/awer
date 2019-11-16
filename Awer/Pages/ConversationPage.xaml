@@ -2,8 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Awer.Pages.ConversationPage"
-             Title="Chats"
-             BackgroundColor="White">
+             BackgroundColor="White"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.ToolbarItems>
        
         <ToolbarItem IconImageSource="logout.png" Clicked="Logout_Clicked"/>
@@ -11,50 +11,53 @@
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <StackLayout VerticalOptions="CenterAndExpand">
+        <StackLayout Padding="0">
+            <StackLayout Orientation="Horizontal" Padding="20,10,20,10" BackgroundColor="#FEEFDF">
+                <Label Text="Groups" FontSize="22" TextColor="#000000"/>
+                <ImageButton Source="logout.png" Clicked="Logout_Clicked" BackgroundColor="Transparent" HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
+            
+             <StackLayout VerticalOptions="CenterAndExpand">
 
-            <Label x:Name="NoChats" Text="No Chats for now." HorizontalTextAlignment="Center"></Label>
-        
-        <StackLayout VerticalOptions="FillAndExpand">
-            <ListView ItemsSource="{Binding .}" SeparatorVisibility="Default"  x:Name="_lstx" RowHeight="120" 
-			IsPullToRefreshEnabled="true"
-			ItemSelected="Handle_ItemSelected"
-			Refreshing="Handle_Refreshing"
-			>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Margin="10">
-                                <Label Text="{Binding Name}" TextColor="Black" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" FontSize="Large"/>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                 <Label x:Name="NoChats" Text="No Chats for now." HorizontalTextAlignment="Center" IsVisible="False"></Label>
+             
+             <StackLayout VerticalOptions="FillAndExpand">
+                 <ListView ItemsSource="{Binding .}" SeparatorVisibility="Default"  x:Name="_lstx" RowHeight="120" 
+		        	IsPullToRefreshEnabled="true"
+		        	ItemSelected="Handle_ItemSelected"
+		        	Refreshing="Handle_Refreshing"
+		        	>
+                     <ListView.ItemTemplate>
+                         <DataTemplate>
+                             <ViewCell>
+                                 <StackLayout Margin="10">
+                                     <Label Text="{Binding Name}" TextColor="Black" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" FontSize="Large"/>
+                                 </StackLayout>
+                             </ViewCell>
+                         </DataTemplate>
+                     </ListView.ItemTemplate>
+                 </ListView>
+
+             </StackLayout>
+
+             <StackLayout Padding="0,0,20,20">
+                    <ImageButton Source="add.png" 
+                                 BackgroundColor="Transparent"
+                                 Clicked="ScanCustomPage" 
+                                 HorizontalOptions="EndAndExpand" 
+                                 VerticalOptions="EndAndExpand"/>
+                    <ImageButton Source="create.png"  
+                                 BackgroundColor="Transparent"
+                                 Clicked="Create_Clicked"
+                                 x:Name="CreateButton" 
+                                 HorizontalOptions="EndAndExpand" 
+                                 VerticalOptions="EndAndExpand"/>
+                    
+
+                </StackLayout>
+             </StackLayout>
 
         </StackLayout>
-
-        <StackLayout>
-            <AbsoluteLayout>
-                <ImageButton Source="create.png" 
-            BackgroundColor="Transparent"
-            AbsoluteLayout.LayoutFlags="PositionProportional"  
-            AbsoluteLayout.LayoutBounds=".95,.95,220,80" 
-            Clicked="Create_Clicked"
-            x:Name="CreateButton"
-                             />
-                <ImageButton Source="add.png" 
-            BackgroundColor="Transparent"
-            AbsoluteLayout.LayoutFlags="PositionProportional"  
-            AbsoluteLayout.LayoutBounds=".95,.95,80,80" 
-            Clicked="ScanCustomPage"
-                             />
-            </AbsoluteLayout>
-
-        </StackLayout>
-        </StackLayout>
-        
-
 
 
     </ContentPage.Content>

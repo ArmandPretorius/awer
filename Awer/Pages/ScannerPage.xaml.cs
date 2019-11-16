@@ -26,12 +26,7 @@ namespace Awer.Pages
             Device.BeginInvokeOnMainThread(async () =>
             {
 
-                await Navigation.PopToRootAsync();
-
-                if (result.Text == "None")
-                {
-                    await DisplayAlert("Oops", "No such chats exist.", "Try Again");
-                } else
+                try
                 {
                     var oauthToken = await SecureStorage.GetAsync("oauth_token");
                     var person = await db.GetPerson(oauthToken);
@@ -39,12 +34,31 @@ namespace Awer.Pages
                     var _person = person.Key;
                     var _name = person.FullName;
 
-                    await db.joinConversation2(result.Text, _person, _name);
+                    //All Conversations
+                    var list = await db.getConversationList();
 
-                    
+                    foreach(var group in list)
+                    {
+                        if(result.Text != group.Name)
+                        {
+                            await DisplayAlert("Oops", "We couldn't find a group", "Try Again");
+                        } else
+                        {
+                            await db.joinConversation2(result.Text, _person, _name);
+                            await Navigation.PopAsync(true);
+                        }
+                    }
                 }
-                
+                catch
+                {
+                    await DisplayAlert("Oops", "We couldn't find a group", "Try Again");
+                }   
             });
+        }
+
+        private async void BackButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
         }
 
 

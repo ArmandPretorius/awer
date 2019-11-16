@@ -3,11 +3,18 @@
                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                         x:Class="Awer.Pages.ScannerPage"
                         xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
-                        Title="Scan The Chat's Barcode">
+                        NavigationPage.HasNavigationBar="False">
 
     <ContentPage.Content>
-        <zxing:ZXingScannerView x:Name="_scanView" OnScanResult="Handle_OnScanResult" IsScanning="true"
+        <StackLayout Padding="0">
+            <StackLayout Orientation="Horizontal" Padding="20,10,20,10" BackgroundColor="#FEEFDF">
+                <ImageButton Source="back" BackgroundColor="Transparent" Clicked="BackButton_Clicked" Margin="0,0,10,0"/>
+                <Label Text="Scan Group's Barcode To Join" FontSize="22" TextColor="#000000" LineBreakMode="TailTruncation"/>
+            </StackLayout>
+            <zxing:ZXingScannerView x:Name="_scanView" OnScanResult="Handle_OnScanResult" IsScanning="true"
                                 WidthRequest="200" HeightRequest="200" />
+        </StackLayout>
+       
     </ContentPage.Content>
        
 </ContentPage>

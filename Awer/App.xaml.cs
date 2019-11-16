@@ -10,7 +10,10 @@ namespace Awer
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Pages.ConversationPage());
+            MainPage = new NavigationPage(new Pages.Login()) {
+                BarBackgroundColor = Color.FromHex("#FEEFDF")
+            };
+            
         }
 
         protected override void OnStart()

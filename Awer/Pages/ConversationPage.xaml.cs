@@ -21,9 +21,14 @@ namespace Awer.Pages
         FirebaseClient fbClient = new FirebaseClient("https://awer-8918c.firebaseio.com/");
         Database.Firebase db = new Database.Firebase();
 
-        public ConversationPage()
+        //Checks Scan Alert
+        public bool NewGroupScanned = false;
+
+        public ConversationPage(bool ScannerCheck)
         {
             InitializeComponent();
+
+            NewGroupScanned = ScannerCheck;
         }
 
         protected override async void OnAppearing()
@@ -34,7 +39,12 @@ namespace Awer.Pages
             var loggedIn = await SecureStorage.GetAsync("loggedIn");
             if (loggedIn == "true")
             {
-               
+
+                if (NewGroupScanned)
+                {
+                    await DisplayAlert("Welcome!", "You have successfully joined the new group", "Thanks");
+                }
+
                 //All Conversations
                 var list = await db.getConversationList();
 
@@ -74,11 +84,8 @@ namespace Awer.Pages
                 else
                 {
                     NoChats.IsVisible = false;
-                 
+
                 }
-               
-
-
 
                 //Check Role to show create Button
                 if (personAuth == "Admin")
@@ -92,7 +99,7 @@ namespace Awer.Pages
             }
             else
             {
-                await Navigation.PushModalAsync(new Pages.Login());
+                await Navigation.PopToRootAsync();
             }
         }
 
@@ -122,7 +129,7 @@ namespace Awer.Pages
             SecureStorage.Remove("oauth_token");
             await SecureStorage.SetAsync("loggedIn", "false");
             await Navigation.PopToRootAsync();
-            OnAppearing();
+            //OnAppearing();
 
         }
 

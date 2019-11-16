@@ -27,7 +27,7 @@ namespace Awer.Pages
                 rm = data;
 
                 _lstChat.BindingContext = db.subChat(data.Key);
-                Title = data.Name;
+                GroupTitle.Text = data.Name;
                 ConvoKey = data.Key;
 
                 MessagingCenter.Unsubscribe<Pages.ConversationPage, Model.Conversation>(this, "ConvoProp");
@@ -40,15 +40,27 @@ namespace Awer.Pages
         {
             var oauthToken = await SecureStorage.GetAsync("oauth_token");
             var person = await db.GetPerson(oauthToken);
-            var chatOBJ = new Model.Chat { UserMessage = _etMessage.Text, UserId = person.FullName };
- 
-            await db.saveMessage(chatOBJ, rm.Key);
-            _etMessage.Text = string.Empty;
+            if (_etMessage.Text != "")
+            {
+                var chatOBJ = new Model.Chat { UserMessage = _etMessage.Text, UserId = person.FullName };
+
+                await db.saveMessage(chatOBJ, rm.Key);
+                _etMessage.Text = string.Empty;
+            } else
+            {
+                Console.WriteLine("Empty Message");
+            }
+          
         }
 
         private async void GenerateBarcode(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new QrCodePage(ConvoKey, Title));
+            await Navigation.PushAsync(new QrCodePage(ConvoKey, GroupTitle.Text));
+        }
+
+        private async void BackButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
         }
     }
 }

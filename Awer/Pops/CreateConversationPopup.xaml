@@ -2,14 +2,18 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Awer.Pops.CreateConversationPopup"
-             Title="Create A Chat">
+             NavigationPage.HasNavigationBar="False">
 
-    <StackLayout>
-        <StackLayout  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Padding="30,0,30,0">
+    <StackLayout Padding="0">
+        <StackLayout Orientation="Horizontal" Padding="20,10,20,10" BackgroundColor="#FEEFDF">
+            <ImageButton Source="back" BackgroundColor="Transparent" Clicked="BackButton_Clicked" Margin="0,0,10,0"/>
+            <Label Text="Create a New Group" FontSize="22" TextColor="#000000"/>
+        </StackLayout>
 
-            <Label HorizontalTextAlignment="Center" Text="Create a chat with the name of your choosing." Margin="0,0,0,20"/>
-            <Entry  x:Name="_rootName" Placeholder="New Conversation"/>
-            <Button Text="Create" Clicked="Handle_Clicked" BackgroundColor="Transparent" TextColor="#FF7E2A" Margin="0,20,0,0" Padding="15" FontSize="Medium" x:Name="CreateClick"/>
+        <StackLayout HorizontalOptions="FillAndExpand" Padding="20">
+            <Label Text="New Group Name" Margin="0,0,0,20" HorizontalOptions="FillAndExpand"/>
+            <Entry  x:Name="_rootName" Placeholder="New Group Name" HorizontalOptions="FillAndExpand"/>
+            <Button Text="Create" Clicked="Handle_Clicked" BackgroundColor="Transparent" TextColor="#FF7E2A" Margin="0,20,0,0" Padding="15" FontSize="Medium" x:Name="CreateClick" HorizontalOptions="FillAndExpand"/>
         </StackLayout>
         
         <!--CREATE USER-->

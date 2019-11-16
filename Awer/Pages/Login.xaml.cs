@@ -8,12 +8,17 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin.Essentials;
 
+using Firebase.Database;
+using Firebase.Database.Query;
+
 namespace Awer.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Login : ContentPage
     {
         Database.Firebase db;
+        FirebaseClient fbClient = new FirebaseClient("https://awer-8918c.firebaseio.com/");
+
         public Login()
         {
             InitializeComponent();
@@ -26,13 +31,29 @@ namespace Awer.Pages
         //    return true;
         //}
 
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+
+            //Check Logged In User
+            var loggedIn = await SecureStorage.GetAsync("loggedIn");
+            if (loggedIn == "true")
+            {
+                await Navigation.PushAsync(new ConversationPage(false));
+            }
+        }
+
         public async void Handle_Login(object sender, System.EventArgs e)
         {
-            await db.CheckLogin(_email.Text, _password.Text);
-            
-            await Navigation.PopModalAsync();
-            
-
+            try
+            {
+                await db.CheckLogin(_email.Text, _password.Text);
+                await Navigation.PushAsync(new ConversationPage(false));
+            }
+            catch
+            {
+                Console.Write("Not Correct");
+            }
         }
     }
 }
