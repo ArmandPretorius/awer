@@ -1195,3 +1195,5 @@ C:\Users\Armand Pretorius\Desktop\OWI_ThirdYear\IDV 300\Term 2\Awer\Awer_IDV302\
 C:\Users\Armand Pretorius\Desktop\OWI_ThirdYear\IDV 300\Term 2\Awer\Awer_IDV302\Awer\Awer.Android\obj\Debug\81\res\drawable-xhdpi\threeselected.png
 C:\Users\Armand Pretorius\Desktop\OWI_ThirdYear\IDV 300\Term 2\Awer\Awer_IDV302\Awer\Awer.Android\obj\Debug\81\res\drawable-xhdpi\two.png
 C:\Users\Armand Pretorius\Desktop\OWI_ThirdYear\IDV 300\Term 2\Awer\Awer_IDV302\Awer\Awer.Android\obj\Debug\81\res\drawable-xhdpi\twoselected.png
+C:\Users\Armand Pretorius\Desktop\OWI_ThirdYear\IDV 300\Term 2\Awer\Awer_IDV302\Awer\Awer.Android\obj\Debug\81\res\drawable\splash_background.xml
+C:\Users\Armand Pretorius\Desktop\OWI_ThirdYear\IDV 300\Term 2\Awer\Awer_IDV302\Awer\Awer.Android\obj\Debug\81\res\drawable\launcher_foreground.png
