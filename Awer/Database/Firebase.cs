@@ -137,6 +137,7 @@ namespace Awer.Database
                 {
                     Key = item.Key,
                     Name = item.Object.Name,
+                    Icon = item.Object.Icon
                 })
                 .ToList();
 

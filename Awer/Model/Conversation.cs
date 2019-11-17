@@ -21,5 +21,11 @@ namespace Awer.Model
             set;
         }
 
+        public string Icon
+        {
+            get;
+            set;
+        }
+
     }
 }

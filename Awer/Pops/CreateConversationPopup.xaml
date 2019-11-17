@@ -2,20 +2,47 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Awer.Pops.CreateConversationPopup"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False" BackgroundColor="White">
 
     <StackLayout Padding="0">
-        <StackLayout Orientation="Horizontal" Padding="20,10,20,10" BackgroundColor="#FEEFDF">
+        <StackLayout Orientation="Horizontal" Padding="20,20,20,10" BackgroundColor="#FEEFDF">
             <ImageButton Source="back" BackgroundColor="Transparent" Clicked="BackButton_Clicked" Margin="0,0,10,0"/>
             <Label Text="Create a New Group" FontSize="22" TextColor="#000000"/>
         </StackLayout>
 
-        <StackLayout HorizontalOptions="FillAndExpand" Padding="20">
-            <Label Text="New Group Name" Margin="0,0,0,20" HorizontalOptions="FillAndExpand"/>
+        <StackLayout HorizontalOptions="FillAndExpand" Padding="20" Margin="0,0,0,10">
+            <Label Text="New Group Name" Margin="0,0,0,5" HorizontalOptions="FillAndExpand" FontSize="18" TextColor="Black"/>
             <Entry  x:Name="_rootName" Placeholder="New Group Name" HorizontalOptions="FillAndExpand"/>
-            <Button Text="Create" Clicked="Handle_Clicked" BackgroundColor="Transparent" TextColor="#FF7E2A" Margin="0,20,0,0" Padding="15" FontSize="Medium" x:Name="CreateClick" HorizontalOptions="FillAndExpand"/>
         </StackLayout>
-        
+
+        <StackLayout HorizontalOptions="FillAndExpand" Padding="20" Margin="0,0,0,10">
+            <Label Text="New Group Name" Margin="0,0,0,15" HorizontalOptions="FillAndExpand" FontSize="18" TextColor="Black"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+
+            <ImageButton x:Name="oneIcon" Source="one" Grid.Row="0" Grid.Column="0" BackgroundColor="Transparent" CommandParameter="one" Clicked="IconButton_Clicked" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+            <ImageButton x:Name="twoIcon" Source="two" Grid.Row="0" Grid.Column="1" BackgroundColor="Transparent" CommandParameter="two" Clicked="IconButton_Clicked" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+            <ImageButton x:Name="threeIcon" Source="three" Grid.Row="0" Grid.Column="2" BackgroundColor="Transparent" CommandParameter="three" Clicked="IconButton_Clicked" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+            <ImageButton x:Name="fourIcon" Source="four" Grid.Row="1" Grid.Column="0" BackgroundColor="Transparent" CommandParameter="four" Clicked="IconButton_Clicked" Margin="0,15,0,0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+            <ImageButton x:Name="fiveIcon" Source="five" Grid.Row="1" Grid.Column="1" BackgroundColor="Transparent" CommandParameter="five" Clicked="IconButton_Clicked" Margin="0,15,0,0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+            <ImageButton x:Name="sixIcon" Source="six" Grid.Row="1" Grid.Column="2" BackgroundColor="Transparent" CommandParameter="six" Clicked="IconButton_Clicked" Margin="0,15,0,0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+
+
+        </Grid>
+        </StackLayout>
+
+
+        <ImageButton Source="createButton" Clicked="Handle_Clicked" BackgroundColor="Transparent" Margin="0,30,0,0" Padding="15" x:Name="CreateClick" HorizontalOptions="FillAndExpand"/>
+
         <!--CREATE USER-->
         <!--<StackLayout>
             <Entry x:Name="txtId" Placeholder="ID"></Entry>

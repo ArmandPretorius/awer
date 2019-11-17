@@ -22,7 +22,7 @@
                  <Label x:Name="NoChats" Text="No Chats for now." HorizontalTextAlignment="Center" IsVisible="False"></Label>
              
              <StackLayout VerticalOptions="FillAndExpand">
-                 <ListView ItemsSource="{Binding .}" SeparatorVisibility="Default"  x:Name="_lstx" RowHeight="120" 
+                 <ListView ItemsSource="{Binding .}" SeparatorVisibility="Default"  x:Name="_lstx" RowHeight="100" 
 		        	IsPullToRefreshEnabled="true"
 		        	ItemSelected="Handle_ItemSelected"
 		        	Refreshing="Handle_Refreshing"
@@ -30,8 +30,9 @@
                      <ListView.ItemTemplate>
                          <DataTemplate>
                              <ViewCell>
-                                 <StackLayout Margin="10">
-                                     <Label Text="{Binding Name}" TextColor="Black" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" FontSize="Large"/>
+                                 <StackLayout Padding="10,2,10,2" Orientation="Horizontal" BackgroundColor="White">
+                                        <Image Source="{Binding Icon}" BackgroundColor="Transparent" />
+                                        <Label Text="{Binding Name}" TextColor="Black" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" FontSize="Large" Margin="10,0,0,0" LineBreakMode="TailTruncation"/>
                                  </StackLayout>
                              </ViewCell>
                          </DataTemplate>

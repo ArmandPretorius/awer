@@ -3,7 +3,7 @@
                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                         x:Class="Awer.Pages.ScannerPage"
                         xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
-                        NavigationPage.HasNavigationBar="False">
+                        NavigationPage.HasNavigationBar="False" BackgroundColor="White">
 
     <ContentPage.Content>
         <StackLayout Padding="0">

@@ -420,7 +420,9 @@
     <AndroidResource Include="Resources\drawable-hdpi\fourSelected.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\loginButton.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\loginButton.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\one.png" />

@@ -22,7 +22,7 @@
 
             </StackLayout>
             <StackLayout Margin="0,40,0,40">
-                <ImageButton Clicked="Handle_Login" Aspect="AspectFill" Padding="25,25,25,25" BackgroundColor="Transparent" Source="loginButton" HorizontalOptions="CenterAndExpand"/>
+                <ImageButton Clicked="Handle_Login" Aspect="AspectFill" Padding="25,25,25,25" BackgroundColor="Transparent" Source="loginButton" HorizontalOptions="FillAndExpand"/>
                 <!--<Button Text="Create Account" BackgroundColor="White" FontSize="Small"></Button>-->
             </StackLayout>
             

@@ -24,6 +24,8 @@
     <item name="android:datePickerDialogTheme">@style/AppCompatDialogStyle</item>
 
     <item name="android:homeAsUpIndicator">@drawable/back</item>
+
+    <item name="android:windowBackground">@drawable/splash_background</item>
   </style>
 
   <style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">
@@ -31,6 +33,6 @@
   </style>
 
   <style name="MyTheme.Splash" parent="Theme.AppCompat.Light.NoActionBar">
-    <item name="android:windowBackground">@drawable/splash_background</item>
+    
   </style>
 </resources>
