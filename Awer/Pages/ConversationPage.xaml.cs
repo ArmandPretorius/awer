@@ -47,6 +47,10 @@ namespace Awer.Pages
 
                 //All Conversations
                 var list = await db.getConversationList();
+                
+
+                //observableList.BindingContext = db.subConvos();
+
 
 
                 //Logged in User's key
@@ -76,6 +80,8 @@ namespace Awer.Pages
                 //Bind list
 
                 _lstx.BindingContext = list2;
+                conversatoinIndicator.IsVisible = false;
+                conversatoinIndicator.IsRunning = false;
 
                 if (list2.Count == 0)
                 {

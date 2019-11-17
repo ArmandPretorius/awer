@@ -140,8 +140,17 @@ namespace Awer.Database
                     Icon = item.Object.Icon
                 })
                 .ToList();
-
         }
+
+        //Observe messages
+        public ObservableCollection<Model.Conversation> subConvos()
+        {
+
+            return fbClient.Child("Conversation/")
+                           .AsObservable<Model.Conversation>()
+                           .AsObservableCollection<Model.Conversation>();
+        }
+
 
         //New Conversation
         public async Task createConversation(Model.Conversation convo)
@@ -174,11 +183,5 @@ namespace Awer.Database
             await fbClient.Child("Conversation/" + _convo + "/Users")
                 .PostAsync(new Model.JoinedChat { PersonId = _person, Name = _personname });
         }
-
-
-
-
-
-
     }
 }
