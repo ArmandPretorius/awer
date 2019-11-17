@@ -39,7 +39,7 @@ namespace Awer.Pages
             var loggedIn = await SecureStorage.GetAsync("loggedIn");
             if (loggedIn == "true")
             {
-                await Navigation.PushAsync(new ConversationPage(false));
+                await Navigation.PushAsync(new ConversationPage());
             }
         }
 
@@ -49,7 +49,7 @@ namespace Awer.Pages
             {
                 errorMessage.IsVisible = false;
                 await db.CheckLogin(_email.Text, _password.Text);
-                await Navigation.PushAsync(new ConversationPage(false));
+                await Navigation.PushAsync(new ConversationPage());
             }
             catch
             {

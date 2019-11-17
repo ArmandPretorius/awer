@@ -28,6 +28,10 @@ namespace Awer.Pages
 
                 try
                 {
+                    await Navigation.PopAsync();
+                    await DisplayAlert("Welcome!", $"You have successfully joined the group", "Thanks");
+
+                   
                     var oauthToken = await SecureStorage.GetAsync("oauth_token");
                     var person = await db.GetPerson(oauthToken);
 
@@ -35,19 +39,23 @@ namespace Awer.Pages
                     var _name = person.FullName;
 
                     //All Conversations
-                    var list = await db.getConversationList();
+                    
+                   
+                    await db.joinConversation2(result.Text, _person, _name);
+                    
 
-                    foreach(var group in list)
-                    {
-                        if(result.Text != group.Name)
-                        {
-                            await DisplayAlert("Oops", "We couldn't find a group", "Try Again");
-                        } else
-                        {
-                            await db.joinConversation2(result.Text, _person, _name);
-                            await Navigation.PopAsync(true);
-                        }
-                    }
+
+                    //foreach (var group in list)
+                    //{
+                    //    if(result.Text != group.Name)
+                    //    {
+                    //        await DisplayAlert("Oops", "We couldn't find a group", "Try Again");
+                    //    } else
+                    //    {
+                    //        await db.joinConversation2(result.Text, _person, _name);
+                    //        await Navigation.PopAsync(true);
+                    //    }
+                    //}
                 }
                 catch
                 {

@@ -21,14 +21,15 @@ namespace Awer.Pages
         FirebaseClient fbClient = new FirebaseClient("https://awer-8918c.firebaseio.com/");
         Database.Firebase db = new Database.Firebase();
 
-        //Checks Scan Alert
-        public bool NewGroupScanned = false;
+        //List<Model.Conversation> observableList = new List<Model.Conversation>();
 
-        public ConversationPage(bool ScannerCheck)
+
+        public ConversationPage()
         {
             InitializeComponent();
 
-            NewGroupScanned = ScannerCheck;
+            // notificationList.BindingContext = observableList;
+
         }
 
         protected override async void OnAppearing()
@@ -37,13 +38,11 @@ namespace Awer.Pages
 
             //Check Logged In User
             var loggedIn = await SecureStorage.GetAsync("loggedIn");
+
             if (loggedIn == "true")
             {
 
-                if (NewGroupScanned)
-                {
-                    await DisplayAlert("Welcome!", "You have successfully joined the new group", "Thanks");
-                }
+                
 
                 //All Conversations
                 var list = await db.getConversationList();
@@ -62,6 +61,8 @@ namespace Awer.Pages
                 //Second List
                 List<Model.Conversation> list2 = new List<Model.Conversation>();
 
+               
+
                 //For loop to add the logged in users conversations into the second list
                 foreach(Model.Conversation conversation in list)
                 {
@@ -72,6 +73,16 @@ namespace Awer.Pages
                         if(user.Object.PersonId == personKey)
                         {
                             list2.Add(conversation);
+
+                            //var observable = fbClient
+                            //    .Child("Conversation")
+                            //  .Child("Conversation/" + conversation.Key + "/Message")
+                            //  .AsObservable<Model.Conversation>()
+                            //  .Subscribe(convo =>
+                            //  {
+                            //      observableList.Add(convo.Object);
+                            //      Console.WriteLine(convo.Object.Name);
+                            //});
                         }
                         
                     }   
@@ -80,6 +91,7 @@ namespace Awer.Pages
                 //Bind list
 
                 _lstx.BindingContext = list2;
+
                 conversatoinIndicator.IsVisible = false;
                 conversatoinIndicator.IsRunning = false;
 
@@ -111,11 +123,15 @@ namespace Awer.Pages
 
         async void Handle_Refreshing(object sender, System.EventArgs e)
         {
-            var loggedInPerson = await SecureStorage.GetAsync("oauth_token");
-            var person = await db.GetPerson(loggedInPerson);
-            var personKey = person.Key;
+            //var loggedInPerson = await SecureStorage.GetAsync("oauth_token");
+            //var person = await db.GetPerson(loggedInPerson);
+            //var personKey = person.Key;
+            //conversatoinIndicator.IsVisible = true;
+            //conversatoinIndicator.IsRunning = true;
+            //_lstx.BindingContext = null;
             OnAppearing();
             _lstx.IsRefreshing = false;
+            
         }
 
 

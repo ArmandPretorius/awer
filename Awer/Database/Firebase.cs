@@ -9,6 +9,8 @@ using Firebase.Auth;
 using Xamarin.Forms;
 using Xamarin.Essentials;
 using System.Diagnostics;
+using System.Collections.Concurrent;
+using System.Reactive.Linq;
 
 namespace Awer.Database
 {
@@ -16,7 +18,6 @@ namespace Awer.Database
     {
         FirebaseClient fbClient;
         FirebaseAuthProvider authProvider;
-
 
         public Firebase()
         {
@@ -140,15 +141,6 @@ namespace Awer.Database
                     Icon = item.Object.Icon
                 })
                 .ToList();
-        }
-
-        //Observe messages
-        public ObservableCollection<Model.Conversation> subConvos()
-        {
-
-            return fbClient.Child("Conversation/")
-                           .AsObservable<Model.Conversation>()
-                           .AsObservableCollection<Model.Conversation>();
         }
 
 

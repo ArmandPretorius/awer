@@ -24,7 +24,6 @@
              <StackLayout VerticalOptions="FillAndExpand">
                     <ActivityIndicator x:Name="conversatoinIndicator" IsVisible="True" IsRunning="True" HorizontalOptions="CenterAndExpand" Color="#FE9072"/>
 
-
                     <ListView ItemsSource="{Binding .}" SeparatorVisibility="Default"  x:Name="_lstx" RowHeight="100" 
 		        	IsPullToRefreshEnabled="true"
 		        	ItemSelected="Handle_ItemSelected"
