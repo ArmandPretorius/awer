@@ -17,7 +17,7 @@ namespace Awer.Pops {
     public partial class CreateConversationPopup : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Xamarin.Forms.Entry _rootName;
+        private global::Awer.Renderers.CustomEntryRenderer _rootName;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::Xamarin.Forms.ImageButton oneIcon;
@@ -43,7 +43,7 @@ namespace Awer.Pops {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(CreateConversationPopup));
-            _rootName = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Entry>(this, "_rootName");
+            _rootName = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Awer.Renderers.CustomEntryRenderer>(this, "_rootName");
             oneIcon = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.ImageButton>(this, "oneIcon");
             twoIcon = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.ImageButton>(this, "twoIcon");
             threeIcon = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.ImageButton>(this, "threeIcon");

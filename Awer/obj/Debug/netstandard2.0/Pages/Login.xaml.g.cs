@@ -20,17 +20,17 @@ namespace Awer.Pages {
         private global::Xamarin.Forms.Frame errorMessage;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Xamarin.Forms.Entry _email;
+        private global::Awer.Renderers.CustomEntryRenderer _email;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Xamarin.Forms.Entry _password;
+        private global::Awer.Renderers.CustomEntryRenderer _password;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(Login));
             errorMessage = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Frame>(this, "errorMessage");
-            _email = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Entry>(this, "_email");
-            _password = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Entry>(this, "_password");
+            _email = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Awer.Renderers.CustomEntryRenderer>(this, "_email");
+            _password = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Awer.Renderers.CustomEntryRenderer>(this, "_password");
         }
     }
 }
