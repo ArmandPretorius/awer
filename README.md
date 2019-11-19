@@ -15,7 +15,7 @@
     <a href="https://github.com/ArmandPretorius/awer"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/ArmandPretorius/awer">View Demo</a>
+    <a href="https://youtu.be/4Onb1EI6EY0">View Demo</a>
     ·
     <a href="https://github.com/ArmandPretorius/awer/issues">Report Bug</a>
     ·
