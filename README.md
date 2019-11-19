@@ -4,7 +4,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/ArmandPretorius/awer">
-    <img src="awer/awer.Android/Resources/mipmap-hdpi/icon.png" alt="Logo" height="80" radius="40"/>
+    <img src="awer.Android/Resources/mipmap-hdpi/icon.png" alt="Logo" height="80" radius="40"/>
   </a>
 
   <h3 align="center">Awer</h3>
