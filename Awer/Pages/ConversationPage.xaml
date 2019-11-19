@@ -19,7 +19,7 @@
             
              <StackLayout VerticalOptions="CenterAndExpand">
 
-                 <Label x:Name="NoChats" Text="No Chats for now." HorizontalTextAlignment="Center" IsVisible="False"></Label>
+                 <Label x:Name="NoChats" Text="No Groups for now." HorizontalTextAlignment="Center" IsVisible="False"></Label>
              
              <StackLayout VerticalOptions="FillAndExpand">
                     <ActivityIndicator x:Name="conversatoinIndicator" IsVisible="True" IsRunning="True" HorizontalOptions="CenterAndExpand" Color="#FE9072"/>

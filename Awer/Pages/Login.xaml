@@ -6,12 +6,13 @@
              BackgroundColor="White"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
+        
         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Margin="30,0,30,0">
             <StackLayout Margin="0,40,0,40">
                 <Image Source="awerlogo.png"></Image>
             </StackLayout>
             <StackLayout Margin="0,40,0,20">
-                <Frame BackgroundColor="#FEEFDF" Margin="0,5,0,5" IsVisible="False" Padding="5" CornerRadius="10"  x:Name="errorMessage" >
+                <Frame BackgroundColor="#FEEFDF" Margin="0,5,0,5" IsVisible="False" Padding="5" CornerRadius="10"  x:Name="errorMessage">
                     <Label Text="Oops, your email and/or password is incorrect." TextColor="#FE9072"/>
                 </Frame>
                 <Label Text="Email" HorizontalOptions="StartAndExpand" FontSize="18" TextColor="Black"/>
@@ -25,7 +26,7 @@
             </StackLayout>
             <StackLayout Margin="0,40,0,40">
                 <ImageButton Clicked="Handle_Login" Aspect="AspectFill" Padding="25,25,25,25" BackgroundColor="Transparent" Source="loginButton" HorizontalOptions="FillAndExpand"/>
-                <!--<Button Text="Create Account" BackgroundColor="White" FontSize="Small"></Button>-->
+                <ActivityIndicator x:Name="loginIndicator" Color="#FE9072" IsRunning="False" IsVisible="False" HorizontalOptions="CenterAndExpand"/>
             </StackLayout>
             
 

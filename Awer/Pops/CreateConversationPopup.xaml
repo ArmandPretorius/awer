@@ -15,9 +15,10 @@
             <Label Text="New Group Name" Margin="0,0,0,5" HorizontalOptions="FillAndExpand" FontSize="18" TextColor="Black"/>
             <local:CustomEntryRenderer  x:Name="_rootName" Placeholder="New Group Name" HorizontalOptions="FillAndExpand" FontSize="14"></local:CustomEntryRenderer>
         </StackLayout>
+        <BoxView Color="#FEEFDF" Margin="20,0,20,0" HeightRequest="2"></BoxView>
 
         <StackLayout HorizontalOptions="FillAndExpand" Padding="20" Margin="0,0,0,10">
-            <Label Text="New Group Name" Margin="0,0,0,15" HorizontalOptions="FillAndExpand" FontSize="18" TextColor="Black"/>
+            <Label Text="New Group Icon" Margin="0,0,0,15" HorizontalOptions="FillAndExpand" FontSize="18" TextColor="Black"/>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>

@@ -45,14 +45,27 @@ namespace Awer.Pages
 
         public async void Handle_Login(object sender, System.EventArgs e)
         {
+            var button = (ImageButton)sender;
+
             try
             {
+                loginIndicator.IsVisible = true;
+                loginIndicator.IsRunning = true;
+                button.IsVisible = false;
                 errorMessage.IsVisible = false;
                 await db.CheckLogin(_email.Text, _password.Text);
                 await Navigation.PushAsync(new ConversationPage());
+                loginIndicator.IsVisible = false;
+                loginIndicator.IsRunning = false;
+                button.IsVisible = true;
+                _password.Text = "";
+                _email.Text = "";
             }
             catch
             {
+                loginIndicator.IsVisible = false;
+                loginIndicator.IsRunning = false;
+                button.IsVisible = true;
                 Console.Write("Not Correct");
                 errorMessage.IsVisible = true;
                 _password.Text = "";
