@@ -21,7 +21,7 @@ namespace Awer.Database
 
         public Firebase()
         {
-            authProvider = new FirebaseAuthProvider(new FirebaseConfig("AIzaSyCObcI7wNFXD-mGbvSUkYiqk7lPWh7eQWw"));
+            authProvider = new FirebaseAuthProvider(new FirebaseConfig("[SUBSCRIPTION-KEY]"));
 
             fbClient = new FirebaseClient("https://awer-8918c.firebaseio.com/");
             

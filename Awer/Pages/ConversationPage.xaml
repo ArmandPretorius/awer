@@ -44,17 +44,17 @@
              </StackLayout>
 
              <StackLayout Padding="0,0,20,20">
-                    <ImageButton Source="add.png" 
+                    <ImageButton Source="add.png"  x:Name="ScanButton"
                                  BackgroundColor="Transparent"
                                  Clicked="ScanCustomPage" 
                                  HorizontalOptions="EndAndExpand" 
-                                 VerticalOptions="EndAndExpand"/>
+                                 VerticalOptions="EndAndExpand" IsVisible="False"/>
                     <ImageButton Source="create.png"  
                                  BackgroundColor="Transparent"
                                  Clicked="Create_Clicked"
                                  x:Name="CreateButton" 
                                  HorizontalOptions="EndAndExpand" 
-                                 VerticalOptions="EndAndExpand"/>
+                                 VerticalOptions="EndAndExpand" IsVisible="False"/>
                     
 
                 </StackLayout>

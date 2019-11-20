@@ -109,10 +109,12 @@ namespace Awer.Pages
                 if (personAuth == "Admin")
                 {
                     CreateButton.IsVisible = true;
+                    ScanButton.IsVisible = true;
                 }
                 else
                 {
                     CreateButton.IsVisible = false;
+                    ScanButton.IsVisible = true;
                 }
             }
             else
@@ -148,6 +150,7 @@ namespace Awer.Pages
 
         public async void Logout_Clicked(object sender, System.EventArgs e)
         {
+            
             SecureStorage.Remove("oauth_token");
             await SecureStorage.SetAsync("loggedIn", "false");
             await Navigation.PopToRootAsync();
